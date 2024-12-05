@@ -25,5 +25,5 @@ The app will now be accessible via your browser.
 ## Test instructions
 
 1. Open in your browser to follow the instructions, noting there are two parts to complete.
-2. Save a zip of your revised code. Email this along with your responses to: nicole@muval.com.au
+2. Save a zip of your revised code. Upload the Zip file to the Google Drive provide in your invitation email. Please send any issues to: <nicole@muval.com.au>
 
