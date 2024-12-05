@@ -1,25 +1,29 @@
 # Muval Vue 3 Problems Test
 
-This vue project will test you on the following:
+This Vue 3 project will test you on the following:
+
 1. Reactivity and composables
-2. Shared state and pinia
+2. Shared state and Pinia
 
-## Getting started
+## Project setup
 
-### Project Setup
+Install:
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+Compile and hot-reload for development:
 
 ```sh
 npm run dev
 ```
 
+The app will now be accessible via your browser.
+
+
 ## Test instructions
 
-1. Open in your browser to follow the instructions, e.g. http://localhost:5173/
-2. Save a zip of your revised code and your responses to nicole@muval.com.au
+1. Open in your browser to follow the instructions, noting there are two parts to complete.
+2. Save a zip of your revised code. Email this along with your responses to: nicole@muval.com.au
 
