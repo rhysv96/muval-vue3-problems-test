@@ -1,28 +1,20 @@
-import { reactive } from 'vue'
+import { ref } from 'vue'
 import type { MaybeRef } from 'vue'
 
 export function useCounter(initial_value: MaybeRef<number> = 0) {
-  const data = reactive({
-    count: initial_value,
-  })
-  const increment = () => data.count++
+  // In the last commit I mentioned a better way of fixing this.
+  // If you haven't seen it, I suggest going back and taking a look, I go into detail about reactive and proxies
+  // But now I want to talk about refs. This is the recommended way of building composables! https://vuejs.org/guide/reusability/composables.html#return-values
+  const count = ref(initial_value)
 
-  // The spread operator here is the culprit to the reactivity issues!
-  // return { ...data, increment }
+  // usage changes in JS to accomodate for new ref syntax. In SFCs you don't need .value, the compiler infers that for you.
+  const increment = () => count.value++
 
-  // If you take a look at this in the console, you'll see that `data` isn't just a plain object but instead a Proxy object
-  // A Proxy is a type in the JS spec that can listen for changes to a given object, and inform subscribers.
-  // In this usage, the "subscribers" are Vue's reactivity engine
-  console.log(data)
+  // If we take a peak at the ref, you can see that this one is not a proxy
+  // Instead this is a simple object with a value getter and setter on the prototype.
+  // This is much simpler than proxies, and this is where Vue hooks in it's reactivity.
+  console.log(count)
 
-  // To demonstrate losing the Proxy, here it is spread
-  // If you check the console, you'll see it's a plain old JS object. No Proxy, no reactivity!
-  console.log({ ...data })
-
-  // This is a solution for sure, but it has some issues.
-  return { data, increment }
-
-  // most notably, if you spread the data in usage...
-  // const { data: { count }, increment } = useCounter()
-  // ...it will also strip the reactivity! No good, we can do better.
+  // Instead of destructuring, we just use count directly.
+  return { count, increment }
 }
