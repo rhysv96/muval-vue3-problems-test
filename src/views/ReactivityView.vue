@@ -5,7 +5,7 @@ import { useCounter } from '@/composables/useCounter'
 
 const initialValue = ref(0)
 
-const { count, increment } = useCounter(initialValue)
+const { data, increment } = useCounter(initialValue)
 </script>
 
 <template>
@@ -18,7 +18,7 @@ const { count, increment } = useCounter(initialValue)
         solution provided. If you find other potential issues, also comment on these.
       </p>
       <button type="button" @click="increment" class="mt-4">Add</button>
-      <span>Count: {{ count }}</span>
+      <span>Count: {{ data.count }}</span>
     </div>
   </Layout>
 </template>
